@@ -26,7 +26,7 @@ test("Verify correct message displayed when incorrect login credentials inserted
   );
 });
 
-test.only("Verify correct login credentials inserted and user redirected", async ({
+test("Verify correct login credentials inserted and user redirected", async ({
   browser,
 }) => {
   //chrome - plugins / cookies
@@ -35,6 +35,8 @@ test.only("Verify correct login credentials inserted and user redirected", async
   //BrowserContexts provide a way to operate multiple independent browser sessions.
   const page = await context.newPage();
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+  //am creat o constanta in care am pus locatorul produselor din pagina
+  const cardTitles = page.locator(".card-body a");
   //using a selector to identify elements on the page
   //CSS locator
   await page.getByRole("textbox", { name: "Username:" }).click();
@@ -54,10 +56,15 @@ test.only("Verify correct login credentials inserted and user redirected", async
     "https://rahulshettyacademy.com/angularpractice/shop",
   );
   console.log(await page.locator(".card-body a").nth(0).textContent());
-  await expect(page.locator(".card-body a").nth(0)).toContainText(/iphone/);
-  await expect(page.locator(".card-body a").nth(1)).toContainText(/Samsung/);
-  await expect(page.locator(".card-body a").nth(2)).toContainText(/Nokia/);
-  await expect(page.locator(".card-body a").nth(3)).toContainText(/Blackberry/);
+  //verifica daca numele produselor este corect
+  await expect(cardTitles.nth(0)).toContainText(/iphone/);
+  await expect(cardTitles.nth(1)).toContainText(/Samsung/);
+  await expect(cardTitles.nth(2)).toContainText(/Nokia/);
+  await expect(cardTitles.nth(3)).toContainText(/Blackberry/);
+
+  //constanta pentru stocarea tuturor titlurilor
+  const allTitles = await cardTitles.allTextContents();
+  console.log(allTitles);
 });
 
 test("Page playwright test", async ({ page }) => {

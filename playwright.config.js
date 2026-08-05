@@ -9,8 +9,8 @@ const config = {
   //directorul unde se afla testele
   testDir: "./tests",
   //default timeoutul este de 30 de secunde, noi am setat la 40 secunde
-  timeout: 40_000,
-  expect: { timeout: 40_000 },
+  timeout: 10_000,
+  expect: { timeout: 10_000 },
   //rapoartele testelor vor fi facute in format html
   reporter: "html",
   use: {
