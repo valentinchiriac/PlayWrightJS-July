@@ -43,7 +43,7 @@ test("UIControls", async ({ page }) => {
   //await page.pause();
 });
 
-test.only("VerifyChildWindowOpening", async ({ browser }) => {
+test("VerifyChildWindowOpening", async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
   const userName = page.locator("#username");
