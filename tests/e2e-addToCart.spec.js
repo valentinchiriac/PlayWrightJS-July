@@ -1,7 +1,7 @@
 const { test, expect } = require("@playwright/test");
 const { text } = require("node:stream/consumers");
 
-test.only("VerifyUserLoginAndAddProductsToCart", async ({ page }) => {
+test("VerifyUserLoginAndAddProductsToCart", async ({ page }) => {
   const productName = "ZARA COAT 3";
   const email = "toader.chiriac@gmail.com";
   await page.goto("https://rahulshettyacademy.com/client");
@@ -46,6 +46,12 @@ test.only("VerifyUserLoginAndAddProductsToCart", async ({ page }) => {
     .locator("[placeholder*='Country']")
     .pressSequentially("roma", { delay: 150 });
   const countryOptions = await page.locator(".ta-results");
+  // await expect(countryOptions).toBeVisible();
+  // await countryOptions
+  //   .getByRole("button", { name: "Oman", exact: true })
+  //   .click();
+
+  // await expect(countryOptions).toBeHidden();
   await countryOptions.waitFor();
   countryOptions.locator("button").count();
   for (let i = 0; i < countryOptions; i++) {
@@ -55,10 +61,16 @@ test.only("VerifyUserLoginAndAddProductsToCart", async ({ page }) => {
       break;
     }
   }
-  //await page.pause();
+  await page.pause();
   //urmatorul pas verifica daca adresa de email este cea introdusa la login de utilizator
-  await expect(page.locator(".user__name label").first()).toHaveText(email);
-  await page.locator(".action_submit").click();
+  await expect(page.locator(".user__name [type='text']").first()).toHaveText(
+    email,
+  );
+  const placeOrderBtn = page.locator(".action__submit");
+
+  console.log("visible:", await placeOrderBtn.isVisible());
+  console.log("enabled:", await placeOrderBtn.isEnabled());
+  await placeOrderBtn.click();
   await expect(page.locator(".hero-primary")).toHaveText(
     " Thankyou for the order. ",
   );
