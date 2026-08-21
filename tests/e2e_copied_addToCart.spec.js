@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test.only("LoginUserAddToCartProductAndGToCheckout", async ({ page }) => {
+test("LoginUserAddToCartProductAndGToCheckout", async ({ page }) => {
   //js file- Login js, DashboardPage
   const email = "toader.chiriac@gmail.com";
   const productName = "ZARA COAT 3";
@@ -56,6 +56,7 @@ test.only("LoginUserAddToCartProductAndGToCheckout", async ({ page }) => {
   const orderHistory = page.locator("button[routerlink*='myorders']");
   //await expect(orderHistory).toBeVisible();
   await orderHistory.click();
+  await page.locator("tbody").waitFor();
   const rowsOfOrderId = page.locator("tbody tr");
   const rowsCount = await rowsOfOrderId.count();
   for (let i = 0; i < (await rowsCount); i++) {
@@ -70,4 +71,6 @@ test.only("LoginUserAddToCartProductAndGToCheckout", async ({ page }) => {
       break;
     }
   }
+  const orderIdDetails = await page.locator(".col-text").textContent();
+  expect(orderId.includes(orderIdDetails)).toBeTruthy();
 });
