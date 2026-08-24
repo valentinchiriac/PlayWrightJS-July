@@ -1,4 +1,5 @@
 const { test, expect } = require("@playwright/test");
+const { TIMEOUT } = require("node:dns/promises");
 
 test.only("PlaywrightSpecialLocators", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/angularpractice/");
@@ -9,9 +10,11 @@ test.only("PlaywrightSpecialLocators", async ({ page }) => {
   await page.getByLabel("Gender").selectOption("Female");
   await page.getByPlaceholder("Password").fill("Nolan2026");
   await page.getByRole("button", { name: "Submit" }).click();
-  await page
-    .getByText("Success coaie! The Form has been submitted successfully")
-    .isVisible();
+  await expect(
+    page
+      .getByText("Success coaie! The Form has been submitted successfully")
+      .toBeVisible({ timeout: 10_000 }),
+  );
   await page.getByRole("link", { name: "Shop" }).click();
   await page
     .locator("app-card")
