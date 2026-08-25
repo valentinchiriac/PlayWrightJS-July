@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from "@playwright/test";
+import { trace } from "node:console";
 import { TIMEOUT } from "node:dns";
 
 /**
@@ -16,6 +17,9 @@ const config = {
   use: {
     browserName: "chromium",
     headless: false,
+    screenshot: "on",
+    //trace: 'on',
+    trace: "retain-on-failure",
   },
 };
 
