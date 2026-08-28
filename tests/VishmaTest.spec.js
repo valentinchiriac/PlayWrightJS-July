@@ -16,7 +16,7 @@ function futureDateValue() {
   return date.toISOString().slice(0, 16);
 }
 
-test.only("eventhubflow", async ({ browser }) => {
+test("eventhubflow", async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
   await login(page);
