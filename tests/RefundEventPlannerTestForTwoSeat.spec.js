@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("VerifyLoginAndBookASeatAtEventAndCancelBookingandRefund", async ({
+test("VerifyLoginAndBookTwoSeatsAtEventAndCancelBookingandCheckNonRefund", async ({
   page,
 }) => {
   async function login(page) {
@@ -14,9 +14,9 @@ test("VerifyLoginAndBookASeatAtEventAndCancelBookingandRefund", async ({
     .getByTestId("event-card")
     .filter({ has: page.getByRole("heading", { name: "Dilli Diwali Mela" }) });
   await eventCard.getByTestId("book-now-btn").click();
-
+  await page.getByRole("button", { name: "+" }).dblclick();
   await page.getByRole("textbox", { name: "Full Name*" }).click();
-  await page.getByRole("textbox", { name: "Full Name*" }).fill("Ana");
+  await page.getByRole("textbox", { name: "Full Name*" }).fill("Lugojana");
   await page.getByRole("textbox", { name: "Full Name*" }).press("Tab");
   await page.getByTestId("customer-email").fill("valentin@shetty.com");
   await page.getByRole("textbox", { name: "Phone Number*" }).click();
@@ -41,15 +41,12 @@ test("VerifyLoginAndBookASeatAtEventAndCancelBookingandRefund", async ({
   const eventNameFirstLetter = eventName.trim()[0];
   console.log("the letters are: ", orderIdFirstLetter, eventNameFirstLetter);
   expect(orderIdFirstLetter).toBe(eventNameFirstLetter);
-  await page.getByTestId("cancel-booking-btn").first().click();
-  await expect(
-    page.locator("div").filter({ hasText: /^Cancel this booking\?$/ }),
-  ).toBeVisible();
 
-  await expect(page.getByTestId("confirm-dialog-yes")).toBeVisible();
-  await page.getByTestId("confirm-dialog-yes").click();
-  await expect(page.getByText("Booking cancelled successfully")).toBeVisible();
-  await expect(page.getByText("Booking cancelled successfully")).toBeHidden({
-    timeout: 6000,
-  });
+  await page.getByTestId("nav-bookings").click();
+  await page.getByRole("button", { name: "View Details" }).first().click();
+  await page.getByTestId("check-refund-btn").click();
+  await expect(page.getByTestId("refund-result")).toBeVisible();
+  await expect(page.getByTestId("refund-result")).toContainText(
+    "Not eligible for refund. Group bookings (3 tickets) are non-refundable.",
+  );
 });
