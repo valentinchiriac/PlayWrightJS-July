@@ -19,6 +19,7 @@ test.beforeAll(async () => {
   );
   expect(loginResponse.ok()).toBeTruthy();
   const loginResponseJson = await loginResponse.json();
+  //aici se extrage token-ul din raspunsul de la API si se salveaza in variabila globala 'token'
   token = loginResponseJson.token;
   console.log("The logintoken is:", token);
 });
@@ -30,11 +31,10 @@ test("VerifyUserLoginAndGetProducts", async ({ page }) => {
   await page.addInitScript((value) => {
     window.localStorage.setItem("token", value);
   }, token);
+
+  const email = " ";
+  const productName = "ZARA COAT 3";
   await page.goto("https://rahulshettyacademy.com/client");
-  // await page.locator("#userEmail").fill("toader.chiriac@gmail.com");
-  // await page.locator("#userPassword").fill("Anaaremere1!");
-  // await page.locator("[value='Login']").click();
-  //await expect(page).toHaveURL(/dashboard/);
   const products = page.locator(".card-body b");
   await expect(products.first()).toBeVisible();
   await page.waitForLoadState("networkidle");

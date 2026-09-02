@@ -40,7 +40,6 @@ test("UIControls", async ({ page }) => {
   await page.locator("#terms").uncheck();
   expect(await page.locator("#terms").isChecked()).toBeFalsy();
   await expect(documentLink).toHaveAttribute("class", "blinkingText");
-  //await page.pause();
 });
 
 test("VerifyChildWindowOpening", async ({ browser }) => {
@@ -61,6 +60,5 @@ test("VerifyChildWindowOpening", async ({ browser }) => {
   const domain = arrayText[1].split(" ")[0];
   console.log(domain);
   page.locator("#username").type(domain);
-  await page.pause();
   console.log(await page.locator("#username").inputValue());
 });

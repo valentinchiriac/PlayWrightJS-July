@@ -37,7 +37,6 @@ test("LoginUserAddToCartProductAndGToCheckout", async ({ page }) => {
     .getByRole("button", { name: "Cart" })
     .click();
   await page.locator("[routerlink*='cart']").click();
-  //await page.pause();
 
   //aici inlocuim metoda de a vedea ca produsul se afla in cos
   // await page.locator("div li").first().waitFor();
