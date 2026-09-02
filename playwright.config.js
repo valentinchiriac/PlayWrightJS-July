@@ -1,14 +1,9 @@
-// @ts-check
-import { defineConfig, devices } from "@playwright/test";
-import { trace } from "node:console";
-import { TIMEOUT } from "node:dns";
-
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 const config = {
   //directorul unde se afla testele
-  testDir: "./tests",
+  testDir: "./PlayWrightAutomation/tests",
   //default timeoutul este de 30 de secunde, noi am setat la 40 secunde
   timeout: 20_000,
   expect: { timeout: 30_000 },
@@ -16,7 +11,7 @@ const config = {
   reporter: "html",
   use: {
     browserName: "chromium",
-    headless: false,
+    headless: true,
     screenshot: "on",
     //trace: 'on',
     trace: "retain-on-failure",

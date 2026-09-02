@@ -61,7 +61,6 @@ test("VerifyUserLoginAndAddProductsToCart", async ({ page }) => {
       break;
     }
   }
-  await page.pause();
   //urmatorul pas verifica daca adresa de email este cea introdusa la login de utilizator
   await expect(page.locator(".user__name [type='text']").first()).toHaveText(
     email,

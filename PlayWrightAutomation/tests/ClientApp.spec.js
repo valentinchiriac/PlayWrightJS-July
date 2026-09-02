@@ -50,7 +50,6 @@ test("@Webst Client App login", async ({ page }) => {
   }
 
   await page.locator("[routerlink*='cart']").click();
-  //await page.pause();
 
   await page.locator("div li").first().waitFor();
   const bool = await page.locator("h3:has-text('zara coat 3')").isVisible();
