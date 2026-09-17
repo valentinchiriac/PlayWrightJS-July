@@ -31,3 +31,46 @@ for (let index = 0; index < scores.length; index++) {
   }
 }
 console.log("the even scores are " + evenScores);
+
+let newFilterDivedesWithTwo = scores.filter((score) => score % 2 == 0); //filter - returns a new array with the elements that pass the test
+console.log(newFilterDivedesWithTwo);
+let newFilterDivedesWithThree = scores.filter((score) => score % 3 == 0);
+console.log(newFilterDivedesWithThree);
+
+let newFilterDivedesWithFive = scores.filter((score) => score % 5 == 0);
+console.log(newFilterDivedesWithFive);
+
+let mappedArray = newFilterDivedesWithFive.map((score) => score * 2); //takes the elements of the array and multiplies with 3 and stores in a new array
+console.log(mappedArray);
+
+let sumOfArray = mappedArray.reduce((sum, val) => sum + val); //ia array-ul mappedArray si aduna toate elementele din el
+console.log(sumOfArray);
+
+var scores1 = [12, 13, 14, 15, 17, 20, 158, 2, 37, 78];
+let chainedActionsArray = scores1
+  .filter((score) => score % 3 == 0)
+  .map((score) => score * 2)
+  .reduce((sum, val) => sum + val); // chestia asta face toate actiunile in una singura
+console.log("chained Array action result is " + chainedActionsArray);
+
+var fruits = [
+  "Apple",
+  "Banana",
+  "Orange",
+  "Grapes",
+  "Mango",
+  "Pineapple",
+  "Watermelon",
+  "Strawberry",
+  "Pear",
+  "Peach",
+];
+console.log(fruits);
+fruits.sort(); //sorts the array in ascending order
+fruits.reverse(); //reverses the array
+console.log(fruits);
+
+var scores2 = [12, 13, 14, 15, 17, 20, 158, 2, 37, 78];
+console.log("scores2 before sort: " + scores2);
+scores2.sort((a, b) => a - b); //modul corect de sortare anumerelor in JS
+console.log("scores2 after sort: " + scores2);
