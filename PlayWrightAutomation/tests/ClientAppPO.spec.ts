@@ -5,7 +5,7 @@
 import {POManager} from '../pageobjects_ts/POManager';
 
  //Json->string->js object
- const dataset =  JSON.parse(JSON.stringify(require("../utils/placeorderTestData.json")));
+ const dataset =  JSON.parse(JSON.stringify(require("./utils/placeorderTestData.json")));
 
  
 for(const data of dataset)
@@ -72,4 +72,3 @@ customTest(`Client App login`, async ({page,testDataForOrder})=>
 
 
  
-
