@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("Verify correct message displayed when incorrect login credentials inserted", async ({
+test.only("Verify correct message displayed when incorrect login credentials inserted", async ({
   browser,
 }) => {
   //chrome - plugins / cookies
@@ -8,6 +8,11 @@ test("Verify correct message displayed when incorrect login credentials inserted
   //context aduce informatii cache-uite sau detalii de login
   //BrowserContexts provide a way to operate multiple independent browser sessions.
   const page = await context.newPage();
+  page.route("**/*.css", (route) => route.abort()); //this is used to intercept the CSS requests and abort them, which speeds up the test execution time
+  page.on("request", (request) => console.log(request.url()));
+  page.on("response", (response) =>
+    console.log(response.url(), response.status()),
+  ); //this is used to log the request and response URLs and status codes to the console, which can be useful for debugging
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   //using a selector to identify elements on the page
   //CSS locator
@@ -34,6 +39,7 @@ test("Verify correct login credentials inserted and user redirected", async ({
   //context aduce informatii cache-uite sau detalii de login
   //BrowserContexts provide a way to operate multiple independent browser sessions.
   const page = await context.newPage();
+  page.route("**/*.{png,jpg,jpeg}", (route) => route.abort()); //this is used to intercept the PNG, JPG and JPEG requests and abort them, which speeds up the test execution time
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   //am creat o constanta in care am pus locatorul produselor din pagina
   const cardTitles = page.locator(".card-body a");
@@ -61,7 +67,7 @@ test("Verify correct login credentials inserted and user redirected", async ({
   await expect(cardTitles.nth(1)).toContainText(/Samsung/);
   await expect(cardTitles.nth(2)).toContainText(/Nokia/);
   await expect(cardTitles.nth(3)).toContainText(/Blackberry/);
-
+  await page.pause();
   //constanta pentru stocarea tuturor titlurilor
   const allTitles = await cardTitles.allTextContents();
   console.log(allTitles);
