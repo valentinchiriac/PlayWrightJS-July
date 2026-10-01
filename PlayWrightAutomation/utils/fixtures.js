@@ -1,10 +1,19 @@
 const base = require("@playwright/test");
-const { expect } = base;
-const { APiUtils } = require("./utils/APiUtils");
+const { APiUtils } = require("../tests/utils/APiUtils.js");
 const { request } = require("@playwright/test");
+
 const loginPayLoad = {
   userEmail: "toader.chiriac@gmail.com",
   userPassword: "Anaaremere1!",
+};
+
+const orderPayLoad = {
+  orders: [
+    {
+      country: "Romania",
+      productOrderedId: "6960ea76c941646b7a8b3dd5",
+    },
+  ],
 };
 
 exports.customTest = base.test.extend({
@@ -17,16 +26,24 @@ exports.customTest = base.test.extend({
       await page.locator("#userEmail").fill(loginPayLoad.userEmail);
       await page.locator("#userPassword").fill(loginPayLoad.userPassword);
       await page.locator("[value='Login']").click();
-      await expect(page.locator(".card-body b").first()).toBeVisible();
+      await base.expect(page.locator(".card-body b").first()).toBeVisible();
       await use(page);
     } finally {
       await loginContext.close();
     }
   },
-  createOrder: async ({ authenticatedPage }, use) => {
+  createOrder: async ({}, use) => {
     const apiContext = await request.newContext();
-    const apiUtils = new APiUtils(apiContext, loginPayLoad);
-    response = await apiUtils.createOrder(orderPayLoad);
-    use(response);
+
+    try {
+      const apiUtils = new APiUtils(apiContext, loginPayLoad);
+      const response = await apiUtils.createOrder(orderPayLoad);
+      await use(response);
+    } finally {
+      await apiContext.dispose(); //this is to close the apiContext after the test is done, so that it doesn't keep running in the background and consuming resources.
+    }
+  },
+  testDataForOrder: {
+    productName: "adidas original",
   },
 });
