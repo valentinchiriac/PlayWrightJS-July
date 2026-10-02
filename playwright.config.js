@@ -9,6 +9,7 @@ const config = {
   expect: { timeout: 30_000 },
   //rapoartele testelor vor fi facute in format html
   reporter: "html",
+  projects: [{ name: "tests suite 20261001" }],
   use: {
     browserName: "chromium",
     headless: false,
