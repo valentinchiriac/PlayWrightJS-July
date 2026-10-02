@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test.only("Verify correct message displayed when incorrect login credentials inserted", async ({
+test("Verify correct message displayed when incorrect login credentials inserted", async ({
   browser,
 }) => {
   //chrome - plugins / cookies
