@@ -4,6 +4,10 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  schedule:
+    - cron: '0 8 * * *'
+      timezone: 'Europe/Bucharest'
+  workflow_dispatch:
 jobs:
   test:
     timeout-minutes: 60
@@ -17,11 +21,19 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Name this test run
+      id: run_folder
+      run: echo "name=$(TZ=Europe/Bucharest date +%Y%m%d) Test run" >> "$GITHUB_OUTPUT"
     - name: Run Playwright tests
-      run: npx playwright test
+      env:
+        PLAYWRIGHT_HTML_OUTPUT_DIR: test-runs/${{ steps.run_folder.outputs.name }}/html-report
+        PLAYWRIGHT_HTML_TITLE: ${{ steps.run_folder.outputs.name }}
+        PLAYWRIGHT_HTML_OPEN: never
+      run: xvfb-run npx playwright test --project "tests suite 20261001" --retries=1 --output "test-runs/${{ steps.run_folder.outputs.name }}/test-results" --reporter=line,html
     - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
+      if: ${{ !cancelled() && steps.run_folder.outcome == 'success' }}
       with:
-        name: playwright-report
-        path: playwright-report/
+        name: ${{ steps.run_folder.outputs.name }}
+        path: test-runs/
+        if-no-files-found: error
         retention-days: 30
