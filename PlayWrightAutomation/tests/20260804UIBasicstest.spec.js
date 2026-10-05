@@ -67,7 +67,6 @@ test("Verify correct login credentials inserted and user redirected", async ({
   await expect(cardTitles.nth(1)).toContainText(/Samsung/);
   await expect(cardTitles.nth(2)).toContainText(/Nokia/);
   await expect(cardTitles.nth(3)).toContainText(/Blackberry/);
-  await page.pause();
   //constanta pentru stocarea tuturor titlurilor
   const allTitles = await cardTitles.allTextContents();
   console.log(allTitles);
