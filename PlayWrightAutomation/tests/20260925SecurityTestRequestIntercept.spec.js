@@ -28,8 +28,7 @@ test("Security test request intercept", async ({ page }) => {
   //   ]);
   //   expect(detailsResponse.status()).toBe(403);
   (await page.locator("button:has-text('View')").first().click(),
-    (await expect(page.locator("p").last()).toHaveText(
+    await expect(page.locator("p").last()).toHaveText(
       "You are not authorized to view this order",
-    ),
-    await page.pause()));
+    ));
 });
