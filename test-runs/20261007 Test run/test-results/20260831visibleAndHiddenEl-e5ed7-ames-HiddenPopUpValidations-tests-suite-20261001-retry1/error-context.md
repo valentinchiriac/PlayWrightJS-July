@@ -1,0 +1,495 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 20260831visibleAndHiddenElementsAndFrames.spec.js >> HiddenPopUpValidations
+- Location: PlayWrightAutomation\tests\20260831visibleAndHiddenElementsAndFrames.spec.js:3:1
+
+# Error details
+
+```
+Test timeout of 20000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link:
+      - /url: https://www.rahulshettyacademy.com/
+    - link "🎯 I’ll help you prepare for your next QA job — Explore the QA Career Accelerator." [ref=e4] [cursor=pointer]:
+      - /url: https://rahulshettyacademy.com/qa-career-accelerator-job-ready
+    - generic [ref=e5]:
+      - link [ref=e6] [cursor=pointer]:
+        - /url: https://www.rahulshettyacademy.com/
+        - button "Home" [ref=e7]
+      - button "Practice" [ref=e8] [cursor=pointer]
+      - button "Login" [ref=e9] [cursor=pointer]
+      - button "Signup" [ref=e10] [cursor=pointer]
+  - heading "Practice Page" [level=1] [ref=e11]
+  - generic [ref=e12]:
+    - group "Radio Button Example" [ref=e14]:
+      - generic [ref=e16] [cursor=pointer]:
+        - radio [ref=e17]
+        - text: Radio1
+      - generic [ref=e18] [cursor=pointer]:
+        - radio [ref=e19]
+        - text: Radio2
+      - generic [ref=e20] [cursor=pointer]:
+        - radio [ref=e21]
+        - text: Radio3
+    - group "Suggession Class Example" [ref=e23]:
+      - textbox "Type to Select Countries" [ref=e25]
+    - group "Dropdown Example" [ref=e27]:
+      - combobox [ref=e29]:
+        - option "Select" [selected]
+        - option "Option1"
+        - option "Option2"
+        - option "Option3"
+    - group "Checkbox Example" [ref=e31]:
+      - generic [ref=e33] [cursor=pointer]:
+        - checkbox [ref=e34]
+        - text: Option1
+      - generic [ref=e35] [cursor=pointer]:
+        - checkbox [ref=e36]
+        - text: Option2
+      - generic [ref=e37] [cursor=pointer]:
+        - checkbox [ref=e38]
+        - text: Option3
+  - generic [ref=e39]:
+    - group "Switch Window Example" [ref=e41]:
+      - button "Open Window" [ref=e43] [cursor=pointer]
+    - group "Switch Tab Example" [ref=e45]:
+      - link "Open Tab" [ref=e47] [cursor=pointer]:
+        - /url: https://www.qaclickacademy.com
+    - group "Switch To Alert Example" [ref=e49]:
+      - textbox "Enter Your Name" [ref=e51]
+      - button "Alert" [ref=e52] [cursor=pointer]
+      - button "Confirm" [ref=e53] [cursor=pointer]
+  - generic [ref=e54]:
+    - group "Web Table Example" [ref=e56]:
+      - table [ref=e58]:
+        - rowgroup [ref=e59]:
+          - row [ref=e60]:
+            - columnheader "Instructor" [ref=e61]
+            - columnheader "Course" [ref=e62]
+            - columnheader "Price" [ref=e63]
+          - row [ref=e64]:
+            - cell "Rahul Shetty" [ref=e65]
+            - cell "Selenium Webdriver with Java Basics + Advanced + Interview Guide" [ref=e66]
+            - cell "30" [ref=e67]
+          - row [ref=e68]:
+            - cell "Rahul Shetty" [ref=e69]
+            - cell "Learn SQL in Practical + Database Testing from Scratch" [ref=e70]
+            - cell "25" [ref=e71]
+          - row [ref=e72]:
+            - cell "Rahul Shetty" [ref=e73]
+            - cell "Appium (Selenium) - Mobile Automation Testing from Scratch" [ref=e74]
+            - cell "30" [ref=e75]
+          - row [ref=e76]:
+            - cell "Rahul Shetty" [ref=e77]
+            - cell "WebSecurity Testing for Beginners-QA knowledge to next level" [ref=e78]
+            - cell "20" [ref=e79]
+          - row [ref=e80]:
+            - cell "Rahul Shetty" [ref=e81]
+            - cell "Learn JMETER from Scratch - (Performance + Load) Testing Tool" [ref=e82]
+            - cell "25" [ref=e83]
+          - row [ref=e84]:
+            - cell "Rahul Shetty" [ref=e85]
+            - cell "WebServices / REST API Testing with SoapUI" [ref=e86]
+            - cell "35" [ref=e87]
+          - row [ref=e88]:
+            - cell "Rahul Shetty" [ref=e89]
+            - cell "QA Expert Course :Software Testing + Bugzilla + SQL + Agile" [ref=e90]
+            - cell "25" [ref=e91]
+          - row [ref=e92]:
+            - cell "Rahul Shetty" [ref=e93]
+            - cell "Master Selenium Automation in simple Python Language" [ref=e94]
+            - cell "25" [ref=e95]
+          - row [ref=e96]:
+            - cell "Rahul Shetty" [ref=e97]
+            - cell "Advanced Selenium Framework Pageobject, TestNG, Maven, Jenkins,C" [ref=e98]
+            - cell "20" [ref=e99]
+          - row [ref=e100]:
+            - cell "Rahul Shetty" [ref=e101]
+            - cell "Write effective QA Resume that will turn to interview call" [ref=e102]
+            - cell "0" [ref=e103]
+    - generic [ref=e104]:
+      - group "Element Displayed Example" [ref=e105]:
+        - button "Hide" [ref=e107] [cursor=pointer]
+        - button "Show" [ref=e108] [cursor=pointer]
+      - group "Web Table Fixed header" [ref=e109]:
+        - table [ref=e112]:
+          - rowgroup [ref=e113]:
+            - row [ref=e114]:
+              - columnheader "Name" [ref=e115]
+              - columnheader "Position" [ref=e116]
+              - columnheader "City" [ref=e117]
+              - columnheader "Amount" [ref=e118]
+          - rowgroup [ref=e119]:
+            - row [ref=e120]:
+              - cell "Alex" [ref=e121]
+              - cell "Engineer" [ref=e122]
+              - cell "Chennai" [ref=e123]
+              - cell "28" [ref=e124]
+            - row [ref=e125]:
+              - cell "Ben" [ref=e126]
+              - cell "Mechanic" [ref=e127]
+              - cell "Bengaluru" [ref=e128]
+              - cell "23" [ref=e129]
+            - row [ref=e130]:
+              - cell "Dwayne" [ref=e131]
+              - cell "Manager" [ref=e132]
+              - cell "Kolkata" [ref=e133]
+              - cell "48" [ref=e134]
+            - row [ref=e135]:
+              - cell "Ivory" [ref=e136]
+              - cell "Receptionist" [ref=e137]
+              - cell "Chennai" [ref=e138]
+              - cell "18" [ref=e139]
+            - row [ref=e140]:
+              - cell "Jack" [ref=e141]
+              - cell "Engineer" [ref=e142]
+              - cell "Pune" [ref=e143]
+              - cell "32" [ref=e144]
+            - row [ref=e145]:
+              - cell "Joe" [ref=e146]
+              - cell "Postman" [ref=e147]
+              - cell "Chennai" [ref=e148]
+              - cell "46" [ref=e149]
+            - row [ref=e150]:
+              - cell "Raymond" [ref=e151]
+              - cell "Businessman" [ref=e152]
+              - cell "Mumbai" [ref=e153]
+              - cell "37" [ref=e154]
+            - row [ref=e155]:
+              - cell "Ronaldo" [ref=e156]
+              - cell "Sportsman" [ref=e157]
+              - cell "Chennai" [ref=e158]
+              - cell "31" [ref=e159]
+            - row [ref=e160]:
+              - cell "Smith" [ref=e161]
+              - cell "Cricketer" [ref=e162]
+              - cell "Delhi" [ref=e163]
+              - cell "33" [ref=e164]
+        - generic [ref=e165]: "Total Amount Collected: 296"
+  - group "Mouse Hover Example" [ref=e168]:
+    - button "Mouse Hover" [ref=e171] [cursor=pointer]
+  - group "iFrame Example" [ref=e173]:
+    - iframe [ref=e175]:
+      - generic [ref=f1e2]:
+        - banner [ref=f1e5]:
+          - generic [ref=f1e8]:
+            - list [ref=f1e10]:
+              - listitem [ref=f1e11]:
+                - generic [ref=f1e12]: 
+                - text: contact@rahulshettyacademy.com
+            - generic [ref=f1e13]:
+              - list [ref=f1e14]:
+                - listitem [ref=f1e15]:
+                  - link "" [ref=f1e16] [cursor=pointer]:
+                    - /url: https://www.youtube.com/channel/UCgx5SDcUQWCQ_1CNneQzCRw
+                - listitem [ref=f1e18]:
+                  - link "" [ref=f1e19] [cursor=pointer]:
+                    - /url: https://linkedin.com/in/rahul-shetty-trainer/
+              - link " Register" [ref=f1e22] [cursor=pointer]:
+                - /url: https://courses.rahulshettyacademy.com/sign_up
+                - generic [ref=f1e23]: 
+                - text: Register
+              - link " Login" [ref=f1e25] [cursor=pointer]:
+                - /url: https://courses.rahulshettyacademy.com/sign_in
+                - generic [ref=f1e26]: 
+                - text: Login
+          - generic [ref=f1e29]:
+            - link [ref=f1e32] [cursor=pointer]:
+              - /url: /
+            - navigation [ref=f1e34]:
+              - list [ref=f1e36]:
+                - listitem [ref=f1e37]:
+                  - link "Home" [ref=f1e38] [cursor=pointer]:
+                    - /url: /
+                - listitem [ref=f1e39]:
+                  - link "Courses" [ref=f1e40] [cursor=pointer]:
+                    - /url: https://courses.rahulshettyacademy.com/courses
+                - listitem [ref=f1e41]:
+                  - link "NEW All Access plan" [ref=f1e42] [cursor=pointer]:
+                    - /url: lifetime-access
+                - listitem [ref=f1e43]:
+                  - link "NEW Learning paths" [ref=f1e44] [cursor=pointer]:
+                    - /url: learning-path
+                - listitem [ref=f1e45]:
+                  - link "Mentorship" [ref=f1e46] [cursor=pointer]:
+                    - /url: mentorship
+                - listitem [ref=f1e47]:
+                  - link "Job Support" [ref=f1e48] [cursor=pointer]:
+                    - /url: consulting
+                - listitem [ref=f1e49]:
+                  - link "Practice" [ref=f1e50] [cursor=pointer]:
+                    - /url: practice-project
+                - listitem [ref=f1e51]:
+                  - link "Blog" [ref=f1e52] [cursor=pointer]:
+                    - /url: https://rahulshettyacademy.com/blog/
+                - listitem [ref=f1e53]:
+                  - link "More " [ref=f1e54] [cursor=pointer]:
+                    - /url: "#"
+                    - text: More
+                    - generic [ref=f1e55]: 
+                  - text: 
+        - heading "All Access Subscription" [level=1] [ref=f1e59]
+        - generic [ref=f1e61]:
+          - generic [ref=f1e62]:
+            - generic [ref=f1e63]:
+              - heading "Join 13,522 Happy Subscibers!" [level=2] [ref=f1e64]
+              - paragraph [ref=f1e65]:
+                - text: Get
+                - strong [ref=f1e66]: Unlimited Life time Access
+                - text: to all Site wide (25 +) Courses with
+                - strong [ref=f1e67]: one Single Subscription
+                - text: . And there is also flexibiity to gain free access to all future release courses as well
+              - paragraph [ref=f1e68]: Check out the below Plans and Access all the courses you need to land your dream QA Automation Job for a minimal one time fee
+            - table [ref=f1e70]:
+              - rowgroup [ref=f1e71]:
+                - row [ref=f1e72]:
+                  - columnheader "Features" [ref=f1e73]
+                  - columnheader [ref=f1e74]:
+                    - heading "Bronze" [level=6] [ref=f1e75]
+                    - paragraph [ref=f1e76]: $ 99
+                    - paragraph [ref=f1e77]: (₹ 7,000)
+                    - button "ENROLL" [ref=f1e78] [cursor=pointer]
+                  - columnheader [ref=f1e79]:
+                    - heading "Silver" [level=6] [ref=f1e80]
+                    - paragraph [ref=f1e81]: $ 199
+                    - paragraph [ref=f1e82]: (₹ 12,000)
+                    - button "ENROLL" [ref=f1e83] [cursor=pointer]
+                  - columnheader [ref=f1e84]:
+                    - heading "Platinum" [level=6] [ref=f1e85]
+                    - paragraph [ref=f1e86]: $ 299
+                    - paragraph [ref=f1e87]: (₹ 18,000)
+                    - button "ENROLL" [ref=f1e88] [cursor=pointer]
+              - rowgroup [ref=f1e89]:
+                - row [ref=f1e90]:
+                  - cell "Life time Access to all 25 Published QA Automation / Certification Courses" [ref=f1e91]
+                  - cell "" [ref=f1e92]
+                  - cell "" [ref=f1e95]
+                  - cell "" [ref=f1e98]
+                - row [ref=f1e101]:
+                  - cell "Access to all Future Available Courses" [ref=f1e102]
+                  - cell "" [ref=f1e103]
+                  - cell "" [ref=f1e106]
+                  - cell "" [ref=f1e109]
+                - row [ref=f1e112]:
+                  - cell "Life time Query Support" [ref=f1e113]
+                  - cell "" [ref=f1e114]
+                  - cell "" [ref=f1e117]
+                  - cell "" [ref=f1e120]
+                - row [ref=f1e123]:
+                  - cell "CareerGuidance/Planning assist from RahulShetty" [ref=f1e124]
+                  - cell "" [ref=f1e125]
+                  - cell "" [ref=f1e128]
+                  - cell "" [ref=f1e131]
+                - row [ref=f1e134]:
+                  - cell "Interview Preparation Assistance" [ref=f1e135]
+                  - cell "" [ref=f1e136]
+                  - cell "" [ref=f1e139]
+                  - cell "" [ref=f1e142]
+                - row [ref=f1e145]:
+                  - cell "Resume Preparation Assistance" [ref=f1e146]
+                  - cell "" [ref=f1e147]
+                  - cell "" [ref=f1e150]
+                  - cell "" [ref=f1e153]
+                - row [ref=f1e156]:
+                  - cell "Access to Social Media Private testing groups" [ref=f1e157]
+                  - cell "" [ref=f1e158]
+                  - cell "" [ref=f1e161]
+                  - cell "" [ref=f1e164]
+                - row [ref=f1e167]:
+                  - cell "All Live Online Trainings Free Admission" [ref=f1e168]
+                  - cell "" [ref=f1e169]
+                  - cell "" [ref=f1e172]
+                  - cell "" [ref=f1e175]
+                - row [ref=f1e178]:
+                  - cell "Projects & Assignments for Practice" [ref=f1e179]
+                  - cell "" [ref=f1e180]
+                  - cell "" [ref=f1e183]
+                  - cell "" [ref=f1e186]
+                - row [ref=f1e189]:
+                  - cell "Certificate on Course Completion" [ref=f1e190]
+                  - cell "" [ref=f1e191]
+                  - cell "" [ref=f1e194]
+                  - cell "" [ref=f1e197]
+            - button "Enroll Now" [ref=f1e201] [cursor=pointer]
+            - generic [ref=f1e202]:
+              - heading "Here's what you get when you enroll in any Package" [level=3] [ref=f1e203]
+              - generic [ref=f1e205]:
+                - list [ref=f1e207]:
+                  - listitem [ref=f1e208]:
+                    - generic [ref=f1e209]: 
+                    - text: 25+ comprehensive courses
+                  - listitem [ref=f1e211]:
+                    - generic [ref=f1e212]: 
+                    - text: 250+ hours of HD video
+                  - listitem [ref=f1e214]:
+                    - generic [ref=f1e215]: 
+                    - text: Real Time Projects / Use cases
+                  - listitem [ref=f1e217]:
+                    - generic [ref=f1e218]: 
+                    - text: Exercises and solutions
+                  - listitem [ref=f1e220]:
+                    - generic [ref=f1e221]: 
+                    - text: Downloadable source code
+                  - listitem [ref=f1e223]:
+                    - generic [ref=f1e224]: 
+                    - text: Learn at your own pace
+                - list [ref=f1e227]:
+                  - listitem [ref=f1e228]:
+                    - generic [ref=f1e229]: 
+                    - text: Watch online or offline
+                  - listitem [ref=f1e231]:
+                    - generic [ref=f1e232]: 
+                    - text: Watch on any device
+                  - listitem [ref=f1e234]:
+                    - generic [ref=f1e235]: 
+                    - text: Certificate of completion
+                  - listitem [ref=f1e237]:
+                    - generic [ref=f1e238]: 
+                    - text: Interview preparation
+                  - listitem [ref=f1e240]:
+                    - generic [ref=f1e241]: 
+                    - text: Resume Assistance
+          - complementary [ref=f1e244]:
+            - heading "Testimonial" [level=3] [ref=f1e246]
+            - generic [ref=f1e247]:
+              - generic [ref=f1e248]:
+                - generic [ref=f1e249]: 
+                - text: I had initially enrolled in Rahul's selenium course which gave me a premium learning experience and wanted to enroll more of his courses. My dream of becoming a full stack QA has become a reality thanks to the Platinum plan which gave me lifeaccess to all existing and new courses with host of other benefits. I feel great that there is always something new skills to learn from his courses and to advance in my career.
+                - generic [ref=f1e250]: 
+              - generic [ref=f1e253]:
+                - generic [ref=f1e254]: Shilpa Goyal
+                - generic [ref=f1e255]: Test Automation Engineer / Walmart
+            - generic [ref=f1e256]:
+              - generic [ref=f1e257]:
+                - generic [ref=f1e258]: 
+                - text: Rahul is not only a teacher but also a mentor and guide to me. His interview and Resume prepartion assistance was very beneficial in landing SDET position in a leading product based company.
+                - generic [ref=f1e259]: 
+              - generic [ref=f1e262]:
+                - generic [ref=f1e263]: Janice Irvine
+                - generic [ref=f1e264]: Sr. SDET / Intuit
+            - generic [ref=f1e265]:
+              - generic [ref=f1e266]:
+                - generic [ref=f1e267]: 
+                - text: From being a Manual tester for 5 years and then landing a job as senior automation engineer was possible only because I took selenium, restassured, jmeter, design patterns course as part of the Silver package. I'm really indebted to you for sharing your knowledge and I believe anyone taking life time subscription has QA career learning covered for lifetime.
+                - generic [ref=f1e268]: 
+              - generic [ref=f1e271]:
+                - generic [ref=f1e272]: Abdul Kalam
+                - generic [ref=f1e273]: QA Lead / Boeing
+        - generic [ref=f1e276]:
+          - generic [ref=f1e277]:
+            - heading "JOIN OUR ACADEMY" [level=2] [ref=f1e278]
+            - generic [ref=f1e279]: Sign up today and get access to "Core Java for Testers" & "QA Resume Preparation" Courses for FREE.
+          - link "JOIN NOW" [ref=f1e282] [cursor=pointer]:
+            - /url: https://courses.rahulshettyacademy.com/sign_up
+        - contentinfo [ref=f1e283]:
+          - generic [ref=f1e286]:
+            - generic [ref=f1e288]:
+              - text: All Right Reserved
+              - link "RahulShettyAcademy" [ref=f1e289] [cursor=pointer]:
+                - /url: "#"
+              - text: © 2026
+            - list [ref=f1e291]:
+              - listitem [ref=f1e292]:
+                - link "About Us" [ref=f1e293] [cursor=pointer]:
+                  - /url: /about-my-mission
+              - listitem [ref=f1e294]:
+                - link "Contact Us" [ref=f1e295] [cursor=pointer]:
+                  - /url: contact-us
+              - listitem [ref=f1e296]:
+                - link "Privacy Policy" [ref=f1e297] [cursor=pointer]:
+                  - /url: /privacy
+        - text: 
+  - table [ref=e177]:
+    - rowgroup [ref=e178]:
+      - row [ref=e179]:
+        - cell [ref=e180]:
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - heading [level=3] [ref=e183]:
+                - link "Discount Coupons" [ref=e184] [cursor=pointer]:
+                  - /url: "#"
+            - listitem [ref=e185]:
+              - link "REST API" [ref=e186] [cursor=pointer]:
+                - /url: http://www.restapitutorial.com/
+            - listitem [ref=e187]:
+              - link "SoapUI" [ref=e188] [cursor=pointer]:
+                - /url: https://www.soapui.org/
+            - listitem [ref=e189]:
+              - link "Appium" [ref=e190] [cursor=pointer]:
+                - /url: https://courses.rahulshettyacademy.com/p/appium-tutorial
+            - listitem [ref=e191]:
+              - link "JMeter" [ref=e192] [cursor=pointer]:
+                - /url: https://jmeter.apache.org/
+        - cell [ref=e193]:
+          - list [ref=e194]:
+            - listitem [ref=e195]:
+              - heading [level=3] [ref=e196]:
+                - link "Latest News" [ref=e197] [cursor=pointer]:
+                  - /url: "#"
+            - listitem [ref=e198]:
+              - link "Broken Link" [ref=e199] [cursor=pointer]:
+                - /url: https://rahulshettyacademy.com/brokenlink
+            - listitem [ref=e200]:
+              - link "Dummy Content for Testing." [ref=e201] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e202]:
+              - link "Dummy Content for Testing." [ref=e203] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e204]:
+              - link "Dummy Content for Testing." [ref=e205] [cursor=pointer]:
+                - /url: "#"
+        - cell [ref=e206]:
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - heading [level=3] [ref=e209]:
+                - link "Contact info" [ref=e210] [cursor=pointer]:
+                  - /url: "#"
+            - listitem [ref=e211]:
+              - link "Dummy Content for Testing." [ref=e212] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e213]:
+              - link "Dummy Content for Testing." [ref=e214] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e215]:
+              - link "Dummy Content for Testing." [ref=e216] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e217]:
+              - link "Dummy Content for Testing." [ref=e218] [cursor=pointer]:
+                - /url: "#"
+        - cell [ref=e219]:
+          - list [ref=e220]:
+            - listitem [ref=e221]:
+              - heading [level=3] [ref=e222]:
+                - link "Social Media" [ref=e223] [cursor=pointer]:
+                  - /url: "#"
+            - listitem [ref=e224]:
+              - link "Facebook" [ref=e225] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e226]:
+              - link "Twitter" [ref=e227] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e228]:
+              - link "Google+" [ref=e229] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e230]:
+              - link "Youtube" [ref=e231] [cursor=pointer]:
+                - /url: "#"
+  - generic [ref=e232]:
+    - text: © 2019 Powered by
+    - strong [ref=e233]:
+      - link "Medianh Consulting" [ref=e234] [cursor=pointer]:
+        - /url: http://www.medianhconsulting.com
+  - status [ref=e235]
+```
